@@ -1,14 +1,25 @@
 {
-  "name": "rabeel.world",
+  "name": "rabeel-ashraf-portfolio",
   "type": "module",
   "version": "1.0.0",
-  "description": "Rabeel Ashraf | AI Engineer & Automation Architect Portfolio",
-  "author": "Rabeel Ashraf",
+  "description": "Portfolio of Rabeel Ashraf - AI Engineer & Automation Architect",
+  "author": "Rabeel Ashraf <contact@rabeel.world>",
   "homepage": "https://rabeel.world",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Codeblackbyshazzy/rabeel.world.git"
+    "url": "https://github.com/Codeblackbyshazzy/AW-2025-Portfolio"
   },
+  "keywords": [
+    "portfolio",
+    "ai-engineer",
+    "automation",
+    "full-stack",
+    "astro",
+    "machine-learning",
+    "computer-vision",
+    "langchain",
+    "nextjs"
+  ],
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",

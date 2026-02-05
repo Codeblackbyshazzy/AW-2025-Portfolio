@@ -1,4 +1,11 @@
 User-agent: *
 Allow: /
-
-Sitemap: https://rabeel.world/sitemap-index.xml
+Sitemap: https://rabeel.world/sitemap.xml
+User-agent: Googlebot
+Allow: /
+User-agent: Bingbot
+Allow: /
+User-agent: AhrefsBot
+Disallow: /
+User-agent: SemrushBot
+Disallow: /
