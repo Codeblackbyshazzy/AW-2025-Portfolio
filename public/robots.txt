@@ -1,7 +1,9 @@
 # Allow all good crawlers
 User-agent: *
 Allow: /
+Disallow: /admin
 Disallow: /admin/
+Disallow: /api
 Disallow: /api/
 Crawl-delay: 10
 
