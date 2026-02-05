@@ -965,7 +965,7 @@ shuffle(works)
 
       height: var(--height);
 
-      clip-path: inset(0 -1rem);
+      // clip-path: inset(0 -1rem); // Removed to prevent clipping
     }
 
     .s__inner {
@@ -1029,7 +1029,7 @@ shuffle(works)
 
       opacity: 0;
       word-break: break-all;
-      z-index: 10;
+      z-index: 20; // Elevated
       position: relative;
 
       &__inner {

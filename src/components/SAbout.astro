@@ -872,7 +872,7 @@ const awards = {
       );
 
       list-style: none;
-      overflow: hidden;
+      // overflow: hidden; // Removed to prevent clipping
 
       @include mq(tablet-sm) {
         grid-template-columns: repeat(4, calc(var(--width) / 4));
