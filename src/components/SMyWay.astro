@@ -872,7 +872,7 @@ const frames = [
       width: 100%;
       height: auto;
 
-      overflow: hidden;
+      // overflow: hidden; // Removed to prevent clipping
       perspective: 1000px;
       perspective-origin: 50% calc(50% - var(--padding) * 0.4);
       pointer-events: none;
@@ -1299,7 +1299,7 @@ const frames = [
         width: 100%;
         height: calc(var(--padding) * 1.5);
 
-        overflow: hidden;
+        // overflow: hidden; // Removed to prevent clipping
         perspective: calc(var(--distortion) * 0.7em);
 
         @include mq(tablet) {
@@ -1344,7 +1344,7 @@ const frames = [
         width: 100%;
         height: calc(100% + 100vh);
 
-        overflow: hidden;
+        // overflow: hidden; // Removed to prevent clipping
       }
 
       &__normal {

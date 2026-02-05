@@ -73,16 +73,20 @@ body {
  */
 
 section {
+  position: relative;
   overflow: visible !important;
   isolation: isolate;
 }
 
 .s__title {
   position: relative;
-  z-index: 10;
+  z-index: 20;
 
   margin: 0;
   padding: 0.5em 0;
+  
+  overflow: visible;
+  pointer-events: none;
 }
 
 /**
@@ -107,6 +111,7 @@ svg[data-background],
   z-index: 1;
 
   pointer-events: none;
+  overflow: visible;
 }
 
 /**
@@ -121,7 +126,8 @@ svg[data-background],
 .card,
 [role="article"] {
   position: relative;
-  z-index: 5;
+  z-index: 10;
+  overflow: visible;
 }
 
 /**
@@ -132,5 +138,7 @@ svg[data-background],
 .container {
   width: 100%;
   max-width: 100%;
-  overflow-x: hidden;
+  margin-right: auto;
+  margin-left: auto;
+  overflow: visible;
 }
