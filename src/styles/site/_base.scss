@@ -66,3 +66,71 @@ body {
     transform: translateY(0);
   }
 }
+
+/**
+ * Global section and heading rules
+ * Ensures proper overflow, spacing, and stacking context
+ */
+
+section {
+  overflow: visible !important;
+  isolation: isolate;
+}
+
+.s__title {
+  position: relative;
+  z-index: 10;
+
+  margin: 0;
+  padding: 0.5em 0;
+}
+
+/**
+ * Decorative background elements (canvases, svgs, grids)
+ * These should sit behind content
+ */
+
+.s__canvas,
+.s__grid,
+.s__svg,
+canvas,
+svg[data-background],
+.s__bg,
+.bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  z-index: 1;
+
+  pointer-events: none;
+}
+
+/**
+ * Card and content elements
+ * Should sit above decorative backgrounds
+ */
+
+.s__inner,
+.s__block,
+.s__content,
+.s__scene,
+.card,
+[role="article"] {
+  position: relative;
+  z-index: 5;
+}
+
+/**
+ * Container utility
+ * Ensures content doesn't overflow viewport
+ */
+
+.container {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
