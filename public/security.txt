@@ -1,0 +1,4 @@
+Contact: mailto:security@rabeel.world
+Expires: 2025-12-31T23:59:59Z
+Canonical: https://rabeel.world/.well-known/security.txt
+Preferred-Languages: en
