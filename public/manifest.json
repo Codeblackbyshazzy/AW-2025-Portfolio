@@ -1,0 +1,14 @@
+{
+  "name": "Rabeel Ashraf - AI Engineer & Automation Architect",
+  "short_name": "Rabeel Ashraf",
+  "description": "Portfolio of Rabeel Ashraf - Building intelligent AI systems, automation tools, and safety solutions",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#160000",
+  "theme_color": "#160000",
+  "orientation": "portrait-primary",
+  "icons": [
+    { "src": "/icons/favicon-48x48.png", "sizes": "48x48", "type": "image/png" },
+    { "src": "/icons/apple-touch-icon.png", "sizes": "180x180", "type": "image/png" }
+  ]
+}

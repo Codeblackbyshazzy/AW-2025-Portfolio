@@ -1,5 +1,7 @@
 ---
-const { caption, cssClass, index, site, src, total } = Astro.props
+const { caption, cssClass, index, site, src, total, tags = [] } = Astro.props
+
+const tagList = Array.isArray(tags) ? tags : []
 
 // A random string with the syntax '[a-z][0-9]{3}-index-total'
 const key = Math.random().toString(36).slice(2, 6) + '-' + index + '/' + total
@@ -7,7 +9,12 @@ const key = Math.random().toString(36).slice(2, 6) + '-' + index + '/' + total
 
 <a-work class={cssClass}>
   <div class="a__inner">
-    <a href={site} target="_blank">
+    <a
+      href={site}
+      target="_blank"
+      rel="noopener noreferrer nofollow"
+      aria-label={`Visit ${caption} project`}
+    >
       <video
         data-src={src}
         class="a__video js-video"
@@ -21,7 +28,12 @@ const key = Math.random().toString(36).slice(2, 6) + '-' + index + '/' + total
 
       <div class="a__caption">
         <div class="a__caption__text">
-          {caption}
+          <span class="a__caption__title">{caption}</span>
+          {
+            tagList.length ? (
+              <span class="a__caption__tags">{tagList.join(' • ')}</span>
+            ) : null
+          }
         </div><!-- .a__caption__text -->
 
         <div class="a__caption__key">
@@ -170,6 +182,23 @@ const key = Math.random().toString(36).slice(2, 6) + '-' + index + '/' + total
       @include mq(phone) {
         display: none;
       }
+    }
+
+    .a__caption__text {
+      @include flex(column, flex-start, flex-start);
+
+      gap: 0.35rem;
+      text-align: left;
+    }
+
+    .a__caption__title {
+      display: block;
+    }
+
+    .a__caption__tags {
+      font: 400 9px / 1.3 font-family(fraktion);
+      letter-spacing: 0.12em;
+      opacity: 0.7;
     }
 
     &.is-inview {

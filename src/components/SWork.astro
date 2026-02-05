@@ -8,23 +8,28 @@ import dummyVideo from '/src/assets/works/Dummy.mp4'
 const info = {
   chatgpt: {
     title: '3D ChatGPT Memories Visualizer',
-    site: 'https://github.com/Codeblackbyshazzy',
+    site: 'https://3dchatgptmemoryvisualizer.netlify.app/',
+    tags: ['React Three Fiber', 'Next.js', 'OpenAI API'],
   },
   pdfchatbot: {
     title: 'AI PDF Chatbot Agent',
     site: 'https://github.com/Codeblackbyshazzy',
+    tags: ['LangChain', 'LangGraph', 'Vector DB', 'FastAPI'],
   },
   hadarbot: {
-    title: 'HadarBot - AI Hazard Detection System',
-    site: 'https://github.com/Codeblackbyshazzy',
+    title: 'HadarBot - AI Hazard Detection',
+    site: 'https://orionixlabs.com',
+    tags: ['YOLOv8', 'OpenCV', 'TensorFlow', 'Docker'],
   },
   rustdesk: {
     title: 'RustDesk Self-Hosted Remote Desktop',
     site: 'https://github.com/Codeblackbyshazzy',
+    tags: ['Rust', 'Docker', 'Coolify', 'Linux', 'WebRTC'],
   },
   vllm: {
     title: 'vLLM High-Throughput Inference Engine',
     site: 'https://github.com/Codeblackbyshazzy',
+    tags: ['Python', 'CUDA', 'FastAPI', 'Ray', 'Docker'],
   },
 }
 
@@ -36,7 +41,8 @@ Object.keys(info).forEach((key) => {
     works.push({
       caption: project.title,
       site: project.site,
-      src: dummyVideo
+      tags: project.tags,
+      src: dummyVideo,
     })
   }
 })
@@ -76,6 +82,7 @@ shuffle(works)
               cssClass="s__scene__work s__scene__work--video js-work"
               caption={work.caption}
               site={work.site}
+              tags={work.tags}
               src={work.src}
               index={String(index).padStart(4, '0')}
               total={String(works.length).padStart(2, '0')}

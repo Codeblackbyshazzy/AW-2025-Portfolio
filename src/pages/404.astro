@@ -1,0 +1,133 @@
+---
+import SiteHead from '../components/SiteHead.astro'
+import SiteFoot from '../components/SiteFoot.astro'
+
+import '../styles/global.scss'
+---
+
+<html lang="en" class="theme-contrasted">
+  <head>
+    <meta charset="utf-8" />
+    <title>Page Not Found | Rabeel Ashraf</title>
+    <meta
+      name="description"
+      content="Sorry, the page you are looking for does not exist on Rabeel Ashraf's portfolio."
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="canonical" href="https://rabeel.world/404" />
+    <meta name="theme-color" content="#160000" />
+  </head>
+
+  <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+
+    <div class="site-wrapper" style="opacity: 1;">
+      <SiteHead />
+
+      <main id="main-content" class="page-404">
+        <div class="page-404__inner">
+          <p class="page-404__eyebrow">404</p>
+          <h1 class="page-404__title">Page not found</h1>
+          <p class="page-404__text">
+            The page you’re looking for was moved, renamed, or never existed in
+            the first place.
+          </p>
+          <a class="page-404__link" href="/">Back to home</a>
+        </div>
+      </main>
+
+      <SiteFoot />
+    </div>
+  </body>
+
+  <script>
+    import Emitter from '../utils/Emitter'
+    import Ticker from '../utils/Ticker'
+
+    const init = () => {
+      Ticker.init()
+      Emitter.emit('siteLoaded')
+      document.dispatchEvent(new CustomEvent('intro'))
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', init, { once: true })
+    } else {
+      init()
+    }
+  </script>
+
+  <style lang="scss">
+    body {
+      min-height: 100vh;
+    }
+
+    .page-404 {
+      @include flex(column, center, center);
+
+      padding: 8rem 1.5rem;
+      min-height: calc(100vh - 10rem);
+
+      text-align: center;
+    }
+
+    .page-404__inner {
+      max-width: 32rem;
+    }
+
+    .page-404__eyebrow {
+      margin: 0 0 1rem;
+
+      font: 700 6rem / 1 font-family(bigger);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+
+      animation: float 3s ease-in-out infinite;
+    }
+
+    .page-404__title {
+      margin: 0 0 1.5rem;
+
+      font: 700 2.5rem / 1.1 font-family(editorial);
+      text-transform: uppercase;
+    }
+
+    .page-404__text {
+      margin: 0 0 2.5rem;
+
+      font: 300 1.25rem / 1.5 font-family(editorial);
+    }
+
+    .page-404__link {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+
+      border: 1px solid color(secondary);
+
+      color: color(secondary);
+      font: 600 0.75rem / 1 font-family(fraktion);
+      letter-spacing: 0.15em;
+      text-decoration: none;
+      text-transform: uppercase;
+
+      transition: background 0.2s ease(in-out-quint),
+        color 0.2s ease(in-out-quint);
+
+      &:hover {
+        background: color(secondary);
+        color: color(primary);
+      }
+    }
+
+    @keyframes float {
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-12px);
+      }
+    }
+  </style>
+</html>

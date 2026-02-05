@@ -41,3 +41,28 @@ body {
 
   font-family: inherit;
 }
+
+.skip-link {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  z-index: 60;
+
+  padding: 0.75rem 1.25rem;
+
+  background: color(secondary);
+  border-radius: 999rem;
+
+  color: color(primary);
+  font: 600 0.75rem / 1 font-family(fraktion);
+  letter-spacing: 0.1em;
+  text-decoration: none;
+  text-transform: uppercase;
+
+  transform: translateY(-200%);
+  transition: transform 0.2s ease(in-out-quint);
+
+  &:focus {
+    transform: translateY(0);
+  }
+}
