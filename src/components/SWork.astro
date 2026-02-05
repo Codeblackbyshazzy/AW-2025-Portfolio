@@ -1,6 +1,12 @@
 ---
 import AWork from './AWork.astro'
-import dummyVideo from '/src/assets/works/Dummy.mp4'
+import pen4 from '/src/assets/works/Pen-4.mp4'
+import pen5 from '/src/assets/works/Pen-5.mp4'
+import pen6 from '/src/assets/works/Pen-6.mp4'
+import pen7 from '/src/assets/works/Pen-7.mp4'
+import pen8 from '/src/assets/works/Pen-8.mp4'
+
+const GITHUB_URL = 'https://github.com/Codeblackbyshazzy'
 
 // Yeah, this should probably be in a CMS or content file.
 // But it’s my site, and editing it in code is faster than setting up yet another headless something.
@@ -8,28 +14,28 @@ import dummyVideo from '/src/assets/works/Dummy.mp4'
 const info = {
   chatgpt: {
     title: '3D ChatGPT Memories Visualizer',
-    site: 'https://3dchatgptmemoryvisualizer.netlify.app/',
     tags: ['React Three Fiber', 'Next.js', 'OpenAI API'],
+    src: pen4,
   },
   pdfchatbot: {
     title: 'AI PDF Chatbot Agent',
-    site: 'https://github.com/Codeblackbyshazzy',
     tags: ['LangChain', 'LangGraph', 'Vector Database', 'Python', 'FastAPI'],
+    src: pen5,
   },
   hadarbot: {
     title: 'HadarBot - AI Hazard Detection',
-    site: 'https://orionixlabs.com',
     tags: ['YOLOv8', 'Computer Vision', 'OpenCV', 'TensorFlow', 'Docker'],
+    src: pen6,
   },
   rustdesk: {
     title: 'RustDesk Self-Hosted Remote Desktop',
-    site: 'https://github.com/Codeblackbyshazzy',
     tags: ['Rust', 'Docker', 'Coolify', 'Linux', 'WebRTC'],
+    src: pen7,
   },
   vllm: {
     title: 'vLLM High-Throughput Inference Engine',
-    site: 'https://github.com/Codeblackbyshazzy',
     tags: ['Python', 'LLM', 'CUDA', 'FastAPI', 'Ray', 'Docker'],
+    src: pen8,
   },
 }
 
@@ -40,9 +46,9 @@ Object.keys(info).forEach((key) => {
   for (let j = 0; j < 4; j++) {
     works.push({
       caption: project.title,
-      site: project.site,
+      site: GITHUB_URL,
       tags: project.tags,
-      src: dummyVideo,
+      src: project.src,
     })
   }
 })
