@@ -2,101 +2,44 @@
 import AWork from './AWork.astro'
 import dummyVideo from '/src/assets/works/Dummy.mp4'
 
-const videos = await Astro.glob<{ default: any }>('/src/assets/works/*.mp4')
-
 // Yeah, this should probably be in a CMS or content file.
 // But it’s my site, and editing it in code is faster than setting up yet another headless something.
 // Sometimes "quick and dirty" wins. Don’t @ me.
 const info = {
-  Pen: {
-    title: 'CodePen',
-    site: 'https://codepen.io/wodniack',
+  chatgpt: {
+    title: '3D ChatGPT Memories Visualizer',
+    site: 'https://github.com/Codeblackbyshazzy',
   },
-  Dummy1: {
-    title: 'Dummy Project 1',
-    site: 'https://wodniack.dev',
+  pdfchatbot: {
+    title: 'AI PDF Chatbot Agent',
+    site: 'https://github.com/Codeblackbyshazzy',
   },
-  Dummy2: {
-    title: 'Dummy Project 2',
-    site: 'https://wodniack.dev',
+  hadarbot: {
+    title: 'HadarBot - AI Hazard Detection System',
+    site: 'https://github.com/Codeblackbyshazzy',
   },
-  Dummy3: {
-    title: 'Dummy Project 3',
-    site: 'https://wodniack.dev',
+  rustdesk: {
+    title: 'RustDesk Self-Hosted Remote Desktop',
+    site: 'https://github.com/Codeblackbyshazzy',
   },
-  Dummy4: {
-    title: 'Dummy Project 4',
-    site: 'https://wodniack.dev',
+  vllm: {
+    title: 'vLLM High-Throughput Inference Engine',
+    site: 'https://github.com/Codeblackbyshazzy',
   },
-  Dummy5: {
-    title: 'Dummy Project 5',
-    site: 'https://wodniack.dev',
-  },
-  Dummy6: {
-    title: 'Dummy Project 6',
-    site: 'https://wodniack.dev',
-  },
-  Dummy7: {
-    title: 'Dummy Project 7',
-    site: 'https://wodniack.dev',
-  },
-  Dummy8: {
-    title: 'Dummy Project 8',
-    site: 'https://wodniack.dev',
-  },
-  Dummy9: {
-    title: 'Dummy Project 9',
-    site: 'https://wodniack.dev',
-  },
-  Dummy10: {
-    title: 'Dummy Project 10',
-    site: 'https://wodniack.dev',
-  }
 }
 
-let projects = []
-let pens = []
+let works = []
 
-// I removed the video loops to keep the repo lightweight.
-// But this is where I normally fetch and assign the videos for each project in the portfolio.
-videos.forEach((video, index) => {
-  const src = video.default
-
-  const key = src.split('-')[0].split('/').pop()
+Object.keys(info).forEach((key) => {
   const project = info[key]
-  if (!project) return
-  const caption = project.title
-  const site = project.site
-
-  if (key === 'Pen') {
-    pens.push({
-      caption,
-      site,
-      src,
-    })
-  } else {
-    projects.push({
-      caption,
-      site,
-      src,
-    })
-  }
-})
-
-// Create dummy projects with 3 videos each
-for (let i = 1; i <= 14; i++) {
-  const key = `Dummy${i}`
-  const project = info[key]
-  if (!project) continue
-
   for (let j = 0; j < 4; j++) {
-    projects.push({
-      caption: `${project.title} - Video ${j + 1}`,
+    works.push({
+      caption: project.title,
       site: project.site,
       src: dummyVideo
     })
   }
-}
+})
 
 function shuffle(array) {
   let currentIndex = array.length
@@ -111,21 +54,7 @@ function shuffle(array) {
   }
 }
 
-shuffle(projects)
-
-// Add pens in between projects regularly
-let works = []
-let chunkSize = Math.floor(projects.length / pens.length)
-let i = 0
-let j = 0
-while (i < projects.length) {
-  works.push(projects[i])
-  if (j < pens.length && (i + 1) % chunkSize === 0) {
-    works.push(pens[j])
-    j++
-  }
-  i++
-}
+shuffle(works)
 ---
 
 <section id="work" class="s-work" data-intersect>

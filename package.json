@@ -1,7 +1,14 @@
 {
-  "name": "public.wodniack.dev",
+  "name": "rabeel.world",
   "type": "module",
-  "version": "0.0.1",
+  "version": "1.0.0",
+  "description": "Rabeel Ashraf | AI Engineer & Automation Architect Portfolio",
+  "author": "Rabeel Ashraf",
+  "homepage": "https://rabeel.world",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Codeblackbyshazzy/rabeel.world.git"
+  },
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
