@@ -142,3 +142,39 @@ svg[data-background],
   margin-left: auto;
   overflow: visible;
 }
+
+/**
+ * FIX: Projects & Innovation Text Clipping (About Section Grid)
+ * Prevent clipping of large counter text in awards grid tiles
+ */
+
+.s-about .s__award--projects,
+.s-about .s__award--innovation {
+  clip-path: none !important;
+  overflow: visible !important;
+  isolation: isolate;
+}
+
+.s-about .s__award--projects .s__award__name,
+.s-about .s__award--innovation .s__award__name {
+  position: relative;
+  z-index: 10;
+  overflow: visible !important;
+}
+
+.s-about .s__award--projects .s__award__inner,
+.s-about .s__award--innovation .s__award__inner {
+  overflow: visible !important;
+  clip-path: none !important;
+}
+
+.s-about .s__awards {
+  overflow: visible !important;
+}
+
+@media (max-width: 767px) {
+  .s-about .s__award--projects .s__award__inner,
+  .s-about .s__award--innovation .s__award__inner {
+    translate: 0 0 !important;
+  }
+}
