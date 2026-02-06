@@ -19,3 +19,111 @@
 @import '/fonts/bigger-display.css';
 @import '/fonts/editorial-new.css';
 @import '/fonts/fraktion-mono.css';
+
+/* ===========================================
+   BULLETPROOF FIX: Projects & Innovation Text Clipping
+   User confirmed: "they are under the design sections"
+   =========================================== */
+
+/* === STEP 1: Maximum Z-Index Elevation === */
+.s-about .s__award--projects,
+.s-about .s__award--innovation {
+  z-index: 100 !important;
+  position: relative !important;
+  isolation: isolate;
+  clip-path: none !important;
+  overflow: visible !important;
+}
+
+/* === STEP 2: Remove ALL Clipping Mechanisms === */
+.s-about .s__award--projects *,
+.s-about .s__award--innovation * {
+  clip-path: none !important;
+  overflow: visible !important;
+}
+
+/* === STEP 3: Nuclear Z-Index for Text Content === */
+.s-about .s__award--projects .s__award__name,
+.s-about .s__award--innovation .s__award__name {
+  position: relative !important;
+  z-index: 101 !important;
+  transform: translateZ(0);
+  will-change: transform;
+  overflow: visible !important;
+}
+
+/* === STEP 4: Fix Inner Container === */
+.s-about .s__award--projects .s__award__inner,
+.s-about .s__award--innovation .s__award__inner {
+  overflow: visible !important;
+  clip-path: none !important;
+  z-index: 100 !important;
+  position: relative !important;
+  
+  /* Force text to be visible immediately */
+  translate: 0 0 !important;
+  animation: none !important;
+}
+
+/* === STEP 5: Fix Counters (subtitle text) === */
+.s-about .s__award--projects .s__award__counter,
+.s-about .s__award--innovation .s__award__counter {
+  z-index: 101 !important;
+  position: relative !important;
+  overflow: visible !important;
+}
+
+/* === STEP 6: Fix Parent Grid Container === */
+.s-about .s__awards {
+  overflow: visible !important;
+  z-index: 2;
+  position: relative;
+}
+
+/* === STEP 7: Ensure About Section Allows Overflow === */
+.s-about .s__inner {
+  overflow: visible !important;
+}
+
+/* === STEP 8: Fix Mask Element (if interfering) === */
+.s-about .s__award--projects .s__award__mask,
+.s-about .s__award--innovation .s__award__mask {
+  /* Hide mask completely to prevent interference */
+  display: none !important;
+}
+
+/* === STEP 9: Desktop Extra Safety === */
+@media (min-width: 1024px) {
+  .s-about .s__award--projects,
+  .s-about .s__award--innovation {
+    z-index: 100 !important;
+  }
+  
+  .s-about .s__award--projects .s__award__name,
+  .s-about .s__award--innovation .s__award__name {
+    z-index: 101 !important;
+  }
+}
+
+/* === STEP 10: Mobile Extra Safety === */
+@media (max-width: 1023px) {
+  .s-about .s__award--projects,
+  .s-about .s__award--innovation {
+    overflow: visible !important;
+    clip-path: none !important;
+  }
+  
+  .s-about .s__award--projects .s__award__inner,
+  .s-about .s__award--innovation .s__award__inner {
+    translate: 0 0 !important;
+  }
+}
+
+/* === EMERGENCY OVERRIDE: If still not visible === */
+body .s-about .s__award--projects .s__award__name,
+body .s-about .s__award--innovation .s__award__name {
+  z-index: 999 !important;
+  position: relative !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
